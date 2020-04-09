@@ -1,0 +1,40 @@
+
+.tabprog{
+  width: 12% !important;
+}
+.progressBar {
+  width:90%;
+  margin: 10px auto;
+  height: 22px;
+  background-color: #0A5F44;
+}
+.progressBar div {
+  height: 100%;
+  text-align: right;
+  /* padding: 0 10px; */
+  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+  width: 0;
+  background-color: #CBEA00;
+  box-sizing: border-box;
+}
+
+
+.main-panel {
+  position: absolute;
+  left: 225px;
+  top: 92px;
+  
+}
+
+@media (min-width:300px) and (max-width:600px){
+  .main-panel {
+    position: absolute;
+    left: 0px !important;
+    top: 49px;
+  }
+}
+.btn-submit {
+  position: relative;
+  top: 1.5rem;
+  left: 1rem;
+}

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>af247 advance financial</title>
+  <link rel="icon" type="image/png" href="../static/images/linkicon.jpg">
+  
+<!-- Bootstrap 4  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- Font Awesome -->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css"
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+
+<!-- For Date Picker -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
+rel="stylesheet">
+<link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Custom fonts for this template-->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158811182-1"></script>
+  <script src="../static/js/analytics.js"></script>
+<style>
+  body{
+    overflow-x:hidden;
+  }
+#canvas217{
+    height: 426px;
+  }
+  #loading {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100vw;
+        height: 350vh;
+        background-color: rgba(192, 192, 192, 0.5);
+        background-image: url("../static/images/loading.svg");
+        background-repeat: no-repeat;
+        background-position: 600px 200px;  
+      }
+
+
+  @media (min-width:300px) and (max-width:600px){
+    #canvas217{
+        height: 426px;
+      }
+
+  #loading {
+    display: block;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 100 !important;
+    width: 100vw !important;
+    height: 460vh !important;
+    background-color: rgba(192, 192, 192, 0.5) !important;
+    background-image: url("../static/images/loading.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: 150px 200px !important;  
+  }
+    }
+    
+
+</style>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper" class="toggled">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <div class="sidebar-brand-icon rotate-n-15">
+        </div>
+        <div class="sidebar-brand-text mx-3">AF247</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+   
+
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="/salesforce">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Sales force</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="/Reports">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Reports</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/Reports_cumulative">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Cummulative Report</span></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" class="too" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Search -->
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            <li class="nav-item dropdown no-arrow d-sm-none">
+              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <!-- Dropdown - Messages -->
+              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                <form class="form-inline mr-auto w-100 navbar-search">
+                  <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </li>
+
+
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Mike Hodges</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/WLUHO9A_xik/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/dropsession" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+    <div class="container-fluid">
+      <div id="loading"></div>
+        <div class="row">
+            <div class="col-xl-5 col-md-6 col-8">
+                <p style="font-weight: bold;">Last updated on:
+                  <span id="update" style="color: blue;"></span></p>
+          </div>
+            <div class="col-xl-1 col-4">
+              <button class="btn btn-success" onclick='getdata()'><i class="fa fa-refresh" aria-hidden="true" style="top: 8px;"></i></button>
+            </div>
+        </div>
+        <br>
+
+          <!-- Content Row -->
+<div class="row">
+  <div class="col-xl-3 col-md-6"></div>
+  <div class="col-xl-3 col-md-6 mb-4">
+    
+      <strong class="text-sm font-weight-bold text-success  mb-1">Predicted (Amount): <span class="h5 mb-0 font-weight-bold text-gray-800" id="amount1"></span></strong>
+      <!-- <div class="h5 mb-0 font-weight-bold text-gray-800" id="amount1"></div> -->
+  
+  </div>
+  <div class="col-xl-3 col-md-6 mb-4">
+    
+    <strong class="text-sm font-weight-bold text-success mb-1">Predicted (count):<span class="h5 mb-0 font-weight-bold text-gray-800" id="count1"></span></strong>
+    <!-- <div class="h5 mb-0 font-weight-bold text-gray-800" id="amount1"></div> -->
+
+</div>
+
+</div>
+
+
+
+          <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4"></div>
+<!-- 
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Predicted (Amount)</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="amount1"></div>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Predicted (Count)</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="count1"></div>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+  
+              <!-- Earnings (Monthly) Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Amount</div>
+                        <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="amount"></div>
+                            <span id="symbol1"></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Pending Requests Card Example -->
+              <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                  <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                      <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Count</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="count"></div>
+                        <span id="symbol"></span>
+                      </div>
+                      <div class="col-auto">
+                          <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <br>
+              <div id="linechart"></div><br>
+              <div id="linechart1"></div>
+              <br>
+              <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Campaigns Sent on :<span id="Campaigns" style="color:blue;"></span></h6>
+                  </div>
+              <!-- <strong style="text-align:center; font-weight:bold">Campaigns Sent on :<span id="Campaigns" style="color:blue;"></span></strong> -->
+              <div class="card-body">
+                  <div class="table-responsive" style="overflow:auto;max-height: calc(75vh - 150px);">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead id="headers1">
+                      </thead>
+                      <tbody id="tbody1">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+    </div>
+
+                <!-- <div class="col-xl-12 col-md-12 col-12 tableFixHead"  style="overflow:auto;max-height: calc(75vh - 150px);">
+                        <table class="table table-responsive-sm" id="table1">
+                                <thead id="headers1"></thead>
+                                <tbody id="tbody1" ></tbody>
+                          </table>
+                </div> -->
+                <br>
+                <div id="chart_div"></div>
+                <br>
+                <div class="row">
+                    <div class="col-xl-12 col-12">
+                        <div class="card card-mini mb-4">
+                          <div class="card-body">
+                            <h2 class="mb-1" id="value3"></h2>
+                            <h5 style="font-weight: bold;">Campaigns Customers on <span id="customerdate"></span></h5>
+                            <div class="chartjs-wrapper">
+                                <div class="chart-area" id='chartarea_2' style="height: 377px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="row">
+                    <div class="col-xl-12 col-12">
+                        <div class="card card-mini mb-4">
+                          <div class="card-body">
+                            <h2 class="mb-1" id="value3"></h2>
+                            <h5 style="font-weight: bold">Campaigns History</h5>
+                            <div class="chartjs-wrapper">
+                                <div class="chart-area" id='chartarea_3' style="height: 377px;"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; AF247 2020</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/dropsession">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+
+  <!-- Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <!-- Admin Dashboard JS -->
+
+   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+   
+   <script src="../static/vendor/jquery/jquery.min.js"></script>
+   <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+ 
+   <!-- Core plugin JavaScript-->
+   <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+ 
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+
+
+  <!-- Page level custom scripts -->
+  <script src="../static/js/sb-admin-2.min.js"></script>
+  <script src="../static/js/salesforce.js"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+
+</div>
+ 
+</body>
+
+</html>
