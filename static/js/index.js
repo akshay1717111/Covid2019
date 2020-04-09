@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 $.ajax({
                     url: "https://covid19.mathdro.id/api",
                     method: "GET",
-                    // contentType: 'application/json',
                     dataType: "json"
                 }).done(function (response) {
                     //this.add(response)
