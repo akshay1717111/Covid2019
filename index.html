@@ -9,20 +9,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>FlexsalaryDashboard</title>
-  <link rel="icon" type="image/png" href="static/images/linkicon.png">
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <title>COVID</title>
+  <link rel="icon" type="image/png" href="static/images/corona.jpg">
+  <!-- Font Awesome -->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css"
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css"
-    rel="stylesheet">
-  <!-- <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
-
+<link rel="stylesheet" type="text/css"
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link href="static/css/admin-dsashboard/sb-admin-2.css" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/pan.css">
@@ -45,37 +39,113 @@
         <!-- Begin Page Content -->
         <div id="customerFlow" class="main-panel ml-2">
           <div id="loading"></div>
-          <br>
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Daily Tracker</h6>
-            </div>
-            <div class="card-body">
-                <h2 class="mb-1" id="value3"></h2>
-                <div class="chartjs-wrapper">
-                    <div class="table-responsive data_spec"
-                        style="overflow:auto; max-height: calc(75vh - 150px);">
-
-                        <table class="table table-bordered" id="table1" cellspacing="0" width="100%">
-
-                        </table>
+          <div class="row">
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Confirmed Cases:
+                      </div>
+                      <div class="row no-gutters align-items-center">
+                        <div class="col-auto">
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800" id="count0"></div>
+                        </div>
+                      </div>
                     </div>
+                    <div class="col-auto">
+                      <i class="fa fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
+
+            <!-- Pending Requests Card Example -->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Recovered :</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="count1"></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!---->
+            <div class="col-xl-4 col-md-6 mb-4">
+              <div class="card border-left-danger shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Deaths:</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800" id="count2"></div>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-xl-3 col-md-6 mb-4">
+
+              <strong class="text-sm font-weight-bold text-success  mb-1">Total Confirmed Cases: <span
+                  class="h5 mb-0 font-weight-bold text-gray-800" id="count0"></span></strong>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+
+              <strong class="text-sm font-weight-bold text-success mb-1">Total Recovered :<span
+                  class="h5 mb-0 font-weight-bold text-gray-800" id="count1"></span></strong>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+
+              <strong class="text-sm font-weight-bold text-success mb-1">Total Deaths:<span
+                  class="h5 mb-0 font-weight-bold text-gray-800" id="count2"></span></strong>
+            </div> -->
+
           <br>
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Daily Tracker</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Day wise Cases </h6>
             </div>
             <div class="card-body">
-
-                <div class="chartjs-wrapper">
-                    <div id="linechart"></div>
-                </div>
+              <div class="chartjs-wrapper">
+                <div class="chart-area" style="height: 26rem;" id='chartarea_1'></div>
+              </div>
             </div>
-        </div><br>
-        
+          </div>
+          <br>
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Day wise deaths</h6>
+            </div>
+            <div class="card-body">
+              <div class="chartjs-wrapper">
+                <div class="chart-area" style="height: 26rem;" id='chartarea_2'></div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <select class="form-control wid_fo" id="mySelect" @change="myFunction()">
+                <option v-for="idea in country_name" :value="idea" selected>[[ idea ]]<option>
+              </select>
+            </div>
+            <div class="card-body">
+                 <div class="chartjs-wrapper">
+                <div id="linechart"></div>
+              </div>
+            </div>
+          </div><br>
+
         </div>
         <!-- /.container-fluid -->
 

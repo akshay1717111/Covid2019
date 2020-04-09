@@ -39,7 +39,7 @@ const topbar = Vue.component('top-bar', {
             <i class="fa fa-bars icon_color"></i>
 
           </button>
-          <strong class="font-weight-bold">Welcome to FlexSalary Dashboard</strong>
+          <strong class="font-weight-bold">Welcome to COVID Dashboard</strong>
 
           <!-- Topbar Navbar -->
           <ul id="top-navbar" class="navbar-nav ml-auto">
@@ -48,27 +48,11 @@ const topbar = Vue.component('top-bar', {
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none p-1 d-lg-inline text-gray-600 font-weight-bold">Flexsalary Admin</span>
+                <span class="mr-2 d-none p-1 d-lg-inline text-gray-600 font-weight-bold"></span>
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/WLUHO9A_xik/60x60">
               </a>
               <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-              <a class="dropdown-item" href="#">
-              <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-               Profiles
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/DailyTasks">
-            <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                Scheduler Tasks
-            </a>
-            <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fa fa-sign-out fa-sm fa-fw mr-2  text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
+           </li>
           </ul>
         </nav>
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
