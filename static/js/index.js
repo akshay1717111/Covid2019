@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             revenue: function () {
                 $("#loading").show();
                 $.ajax({
-                    url: "http://covid19.mathdro.id/api",
+                    url: "https://covid19.mathdro.id/api",
                     method: "GET",
                     // contentType: 'application/json',
                     dataType: "json"
