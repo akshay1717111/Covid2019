@@ -21,16 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
             },
 
             revenue: function () {
+              $("#loading").show();
               $.ajax({
                 url: 'https://api.thevirustracker.com/free-api?global=stats',
                 dataType: 'json',
                 success: function(data) {
                  this.cards(data)
+                 $("#loading").hide();
                 }.bind(this)
               });
             },
             revenue1: function () {
-                $("#loading").show();
+                // $("#loading").show();
                 $.ajax({
                     url: "https://covid19.mathdro.id/api/daily",
                     method: "GET",
@@ -38,14 +40,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     dataType: "json"
                 }).done(function (response) {
                 this.graph(response)
-                    $("#loading").hide();
+                    // $("#loading").hide();
                 }.bind(this)).fail(function (error) {
                     console.log(error);
                     $("#loading").hide();
                 });
             },
             revenue2: function () {
-                $("#loading").show();
+               // $("#loading").show();
                 $.ajax({
                     url: "https://covid19.mathdro.id/api/countries",
                     method: "GET",
@@ -53,10 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     dataType: "json"
                 }).done(function (response) {
                     this.dropdown(response)
-                    $("#loading").hide();
+                   // $("#loading").hide();
                 }.bind(this)).fail(function (error) {
                     console.log(error);
-                    $("#loading").hide();
+                   // $("#loading").hide();
                 });
             },
             revenue3: function () {
