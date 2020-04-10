@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
         $.ajax({
           url: "https://covid19.mathdro.id/api/daily",
           method: "GET",
-          // contentType: 'application/json',
           dataType: "json"
         }).done(function (response) {
           this.graph(response)
@@ -77,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
           url: "https://v1.api.covindia.com/general",
           method: "GET"
         }).done(function (response) {
-          console.log(response)
           $("#count8").html(this.formatNumber(response.deathTotal))
           $("#count9").html(this.formatNumber(response.infectedTotal))
           $("#count10").html(this.formatNumber(response.totalCured))
@@ -85,6 +83,70 @@ document.addEventListener('DOMContentLoaded', function () {
         }.bind(this)).fail(function (err) {
           console.log(err);
         });
+      },
+      revenue5: function () {
+        // $("#loading").show();
+        $.ajax({
+          url: "https://v1.api.covindia.com/daily-dates",
+          method: "GET"
+        }).done(function (response) {
+          google.charts.setOnLoadCallback(function () {
+            this.linegraph(response);
+          }.bind(this));
+          $(window).resize(function () {
+            this.linegraph(response);
+          }.bind(this));
+        }.bind(this)).fail(function (err) {
+          console.log(err);
+        });
+      },
+      bass: function (a, b) {
+        var tltp = "<strong>" + "Date:" + a + "</strong>" + "<br>" + "<strong>" + "Covid cases:" + b + "</strong>" + "<br>" ;
+         return tltp;
+    },
+      linegraph: function (dataObj) {
+        const date = Object.keys(dataObj);
+        const count = Object.keys(dataObj).map(key => dataObj[key]);
+        var container = document.getElementById('linechart');
+        var chart = new google.visualization.LineChart(container);
+        var dataTable = new google.visualization.DataTable();
+        dataTable.addColumn('string', 'Date');
+        dataTable.addColumn('number', 'CovidCases');
+        dataTable.addColumn({
+            type: 'string',
+            role: 'tooltip',
+            p: {
+                html: true
+            }
+        });
+        var accounts = [];
+        for (i = 0; i < date.length; i++) {
+            accounts.push([date[i], count[i],this.bass(date[i], count[i])]);
+        }
+        dataTable.addRows(accounts);
+        var chartHeight = '550';
+        var options = {
+             is3D: true,
+            tooltip: {
+                    isHtml: true
+                },
+            title: 'Total Cases in India',
+            hAxis: {title: 'Date',  titleTextStyle: {color: '#333'},
+            slantedText:true, slantedTextAngle:40},
+            explorer: {actions: ["dragToZoom", "rightClickToReset"]},
+            legend: {position: "top"},
+              pointSize: 10,
+              pointShape: { type: 'triangle', rotation: 180 },
+            vAxis: {
+              title: 'Covid cases'
+            },
+            height: chartHeight,
+                    width: '120%',
+          };
+           
+    
+        chart.draw(dataTable, options);
+
       },
       generateindia: function (values) {
         var data = google.visualization.arrayToDataTable([]);
@@ -358,6 +420,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.revenue2();
       this.revenue3();
       this.revenue4();
+      this.revenue5();
     },
     beforeCreate() {
     }
