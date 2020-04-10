@@ -5,20 +5,20 @@ document.addEventListener('DOMContentLoaded', function () {
         el: '#wrapper',
         delimiters: ['[[', ']]'],
         components: {
-            navbar,
-            topbar
+           // navbar,
+           // topbar
         },
         data: {
             country_name:[]
         },
         methods: {
-            toggleSideBar: function () {
-                $("body").toggleClass("sidebar-toggled");
-                $(".sidebar").toggleClass("toggled");
-                if ($(".sidebar").hasClass("toggled")) {
-                    $('.sidebar .collapse').collapse('hide');
-                };
-            },
+            // toggleSideBar: function () {
+            //     $("body").toggleClass("sidebar-toggled");
+            //     $(".sidebar").toggleClass("toggled");
+            //     if ($(".sidebar").hasClass("toggled")) {
+            //         $('.sidebar .collapse').collapse('hide');
+            //     };
+            // },
 
             revenue: function () {
               $("#loading").show();

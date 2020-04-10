@@ -24,7 +24,41 @@
 
 <body id="page-top" class="sidebar-toggled">
   <div id="wrapper" class="toggled">
-    <nav-bar v-on:sidebar-toggle="toggleSideBar()"></nav-bar>
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+      <!-- Sidebar -  Logo - Title -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <div class="sidebar-brand-icon rotate-n-5">
+        <i class="fas fa-tachometer-alt"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">COVID</div>
+      </a>
+      <hr class="sidebar-divider my-0">
+      <hr class="sidebar-divider">
+      <div class="sidebar-heading">
+        Interface
+      </div>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+        <i class="fa fa-history"></i>
+         <span>Total Analysis</span></a>
+      </li>
+
+     <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+      
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"><i class="fa fa-angle-left text-white"></i></button>
+      </div>
+
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up icon_color"></i>
+      </a>
+
+    </ul>
+    <!-- <nav-bar v-on:sidebar-toggle="toggleSideBar()"></nav-bar> -->
 
     <!-- End of Sidebar -->
 
@@ -33,7 +67,31 @@
 
       <!-- Main Content -->
       <div id="content">
-        <top-bar></top-bar>
+        <!-- <top-bar></top-bar> -->
+        <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" @click="toggleSidebar()">
+            <i class="fa fa-bars icon_color"></i>
+
+          </button>
+          <strong class="font-weight-bold">Welcome to COVID Dashboard</strong>
+
+          <!-- Topbar Navbar -->
+          <ul id="top-navbar" class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Alerts -->
+         
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none p-1 d-lg-inline text-gray-600 font-weight-bold">Akshay</span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/WLUHO9A_xik/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+            </li>
+          </ul>
+        </nav>
+
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -266,8 +324,8 @@
 
   <script src="static/js/admin-dashboard/sb-admin-2.js"></script>
 
-  <script src="static/components/topbar.js"></script>
-  <script src="static/components/navbar.js"></script>
+  <!-- <script src="static/components/topbar.js"></script>
+  <script src="static/components/navbar.js"></script> -->
 
   <script src="static/js/lib/googleloader.js"></script>
   <script src="static/js/lib/canvascharts.js"></script>
