@@ -30,12 +30,11 @@ const topbar = Vue.component('top-bar', {
       };
     }
   },
-
   template: `
     <div>
     <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
           <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3" @click="toggleSidebar()">
             <i class="fa fa-bars icon_color"></i>
 
           </button>
@@ -45,6 +44,7 @@ const topbar = Vue.component('top-bar', {
           <ul id="top-navbar" class="navbar-nav ml-auto">
 
             <!-- Nav Item - Alerts -->
+         
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -52,7 +52,7 @@ const topbar = Vue.component('top-bar', {
                 <img class="img-profile rounded-circle" src="https://source.unsplash.com/WLUHO9A_xik/60x60">
               </a>
               <!-- Dropdown - User Information -->
-           </li>
+            </li>
           </ul>
         </nav>
         <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

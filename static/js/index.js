@@ -245,9 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             add: function (table_data) {
              var c=table_data.countryitems[0];
-              console.log(c)
               const dateRangeData = Object.keys(c).map(key => c[key]);
-              console.log(dateRangeData)
                 let table = document.querySelector("table");
                 let data = Object.keys(dateRangeData[0]);
                 this.generateTableHead(table, data);
