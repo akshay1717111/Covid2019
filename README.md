@@ -5,6 +5,8 @@ You can use the [editor on GitHub](https://github.com/akshay1717111/Covid2019/ed
 Templates For Dashboard
 ![](static/images/Template1.png)
 
+![](static/images/Template3.png)
+
 ![](static/images/Template2.png)
 
 To view Visualization : https://akshay1717111.github.io/Covid2019/
