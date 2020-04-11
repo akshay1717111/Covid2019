@@ -27,12 +27,11 @@ document.addEventListener('DOMContentLoaded', function () {
           dataType: 'json',
           success: function (data) {
             this.cards(data)
-            $("#loading").hide();
+              $("#loading").hide();
           }.bind(this)
         });
       },
       revenue1: function () {
-        // $("#loading").show();
         $.ajax({
           url: "https://covid19.mathdro.id/api/daily",
           method: "GET",
@@ -46,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       },
       revenue2: function () {
-        // $("#loading").show();
         $.ajax({
           url: "https://v1.api.covindia.com/states-affected-numbers",
           method: "GET"
@@ -63,15 +61,20 @@ document.addEventListener('DOMContentLoaded', function () {
       },
       revenue3: function () {
         $.ajax({
-          url: 'https://api.thevirustracker.com/free-api?countryTotals=ALL',
+          url: 'https://covid19-server.chrismichael.now.sh/api/v1/CountriesWhereCoronavirusHasSpread',
           dataType: 'json',
           success: function (data) {
+            google.charts.setOnLoadCallback(function () {
+              this.worldmap(data);
+            }.bind(this));
+            $(window).resize(function () {
+              this.worldmap(data);
+            }.bind(this));
             this.add(data);
           }.bind(this)
         });
       },
       revenue4: function () {
-        // $("#loading").show();
         $.ajax({
           url: "https://v1.api.covindia.com/general",
           method: "GET"
@@ -81,11 +84,11 @@ document.addEventListener('DOMContentLoaded', function () {
           $("#count10").html(this.formatNumber(response.totalCured))
           $("#count11").html((response.lastUpdatedTime).substr(0, 19))
         }.bind(this)).fail(function (err) {
+          $("#loading").hide();
           console.log(err);
         });
       },
       revenue5: function () {
-        // $("#loading").show();
         $.ajax({
           url: "https://v1.api.covindia.com/daily-dates",
           method: "GET"
@@ -100,10 +103,152 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log(err);
         });
       },
+      revenue6: function () {
+        $.ajax({
+          url: 'https://covid19-server.chrismichael.now.sh/api/v1/FatalityRateByComorbidities',
+          dataType: 'json',
+          success: function (data) {
+            this.add1(data)
+          }.bind(this)
+        });
+      },
+      revenue7: function () {
+        $.ajax({
+          url: "https://covid19-server.chrismichael.now.sh/api/v1/CasesInAllUSStates",
+          method: "GET"
+        }).done(function (response) {
+          google.charts.setOnLoadCallback(function () {
+            this.USA(response);
+          }.bind(this));
+          $(window).resize(function () {
+            this.USA(response);
+          }.bind(this));
+        }.bind(this)).fail(function (err) {
+          console.log(err);
+        });
+      },
+      revenue8: function () {
+        $.ajax({
+          url: 'https://covid19-server.chrismichael.now.sh/api/v1/AllCasesInEurope',
+          dataType: 'json',
+          success: function (data) {
+            this.add2(data)
+          }.bind(this)
+        });
+      },
+      change: function (rep) {
+        var str = parseInt(rep.replace(",", ""));
+        return str;
+      },
+      worldmap: function (values) {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Label');
+        data.addColumn('number', 'Deaths');
+        data.addColumn({
+          type: 'string',
+          role: 'tooltip',
+          p: {
+            html: true
+          }
+        });
+        var total_data = values.table;
+        var new_obj = {}
+        for (var i = 0; i < total_data.length; i++) {
+          new_obj[i] = { "country": total_data[i].Country, "Deaths": total_data[i].Deaths, "tooltip": "Death:" + total_data[i].Deaths + "," + "Cases:" + total_data[i].Cases }
+        }
+
+        var country = [],
+          deaths = [],
+          tooltip = [];
+        for (i in new_obj) {
+          country.push(new_obj[i].country)
+          deaths.push(this.change(new_obj[i].Deaths))
+          tooltip.push(new_obj[i].tooltip)
+        }
+
+        var fin = [];
+        for (i = 0; i < country.length; i++) {
+          fin.push([country[i], deaths[i], tooltip[i]])
+        }
+        data.addRows(fin);
+        var options = {
+          datalessRegionColor: 'ash',
+          colorAxis: {
+            colors: ['#e3d754', '#ff8c00', '#ff7b00', '#d47f7f', '#ff0000'],
+          },
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('visualization3'));
+
+        chart.draw(data, options);
+        // $("#loading").hide();
+      },
+      USA: function (new_data) {
+        var values = new_data.data[0].table;
+        var data = google.visualization.arrayToDataTable([]);
+        data.addColumn('string', 'Label')
+        data.addColumn('number', 'Customers')
+        data.addColumn({
+          type: 'string',
+          role: 'tooltip',
+          p: {
+            html: true
+          }
+        });
+        d = {}
+        for (i = 0; i < values.length; i++) {
+
+          d[i] = {
+            "state": values[i].USAState,
+            "customers": values[i].TotalDeaths,
+            "tooltip": "State:" + values[i].USAState + "," + "Deaths:" + values[i].TotalDeaths
+          }
+
+        }
+        var ab = [],
+          cd = [],
+          fg = [];
+        for (i in d) {
+          if (d[i].customers != "") {
+            ab.push(d[i].state)
+            cd.push(this.change(d[i].customers))
+            fg.push(d[i].tooltip)
+          }
+        }
+        var fin = [];
+        for (i = 0; i < ab.length; i++) {
+          fin.push([ab[i], cd[i], fg[i]])
+        }
+        //console.log(fin)
+        var opts = {
+          title: "Corona cases",
+          titleStyle: {
+            fontSize: 20,
+            position: "right"
+          },
+          region: 'US',
+          backgroundColor: '#ffffff',
+          displayMode: 'regions',
+          resolution: 'provinces',
+          dataMode: 'markers',
+          datalessRegionColor: 'ash',
+          // colorAxis: {
+          //   colors: ['#d68427','#ff5e00','#c40000'],
+          // },
+          colorAxis: {
+            colors: ['#e3d754', '#ff8c00', '#ff0000'],
+          },
+          strokeWeight: 2,
+          scale: 1,
+        };
+        data.addRows(fin);
+        var geochart = new google.visualization.GeoChart(document.getElementById('visualization2'));
+        geochart.draw(data, opts);
+      },
       bass: function (a, b) {
-        var tltp = "<strong>" + "Date:" + a + "</strong>" + "<br>" + "<strong>" + "Covid cases:" + b + "</strong>" + "<br>" ;
-         return tltp;
-    },
+        var tltp = "<strong>" + "Date:" + a + "</strong>" + "<br>" + "<strong>" + "Covid cases:" + b + "</strong>" + "<br>";
+        return tltp;
+      },
       linegraph: function (dataObj) {
         const date = Object.keys(dataObj);
         const count = Object.keys(dataObj).map(key => dataObj[key]);
@@ -113,38 +258,40 @@ document.addEventListener('DOMContentLoaded', function () {
         dataTable.addColumn('string', 'Date');
         dataTable.addColumn('number', 'CovidCases');
         dataTable.addColumn({
-            type: 'string',
-            role: 'tooltip',
-            p: {
-                html: true
-            }
+          type: 'string',
+          role: 'tooltip',
+          p: {
+            html: true
+          }
         });
         var accounts = [];
         for (i = 0; i < date.length; i++) {
-            accounts.push([date[i], count[i],this.bass(date[i], count[i])]);
+          accounts.push([date[i], count[i], this.bass(date[i], count[i])]);
         }
         dataTable.addRows(accounts);
         var chartHeight = '550';
         var options = {
-             is3D: true,
-            tooltip: {
-                    isHtml: true
-                },
-            title: 'Total Cases in India',
-            hAxis: {title: 'Date',  titleTextStyle: {color: '#333'},
-            slantedText:true, slantedTextAngle:40},
-            explorer: {actions: ["dragToZoom", "rightClickToReset"]},
-            legend: {position: "top"},
-              pointSize: 10,
-              pointShape: { type: 'triangle', rotation: 180 },
-            vAxis: {
-              title: 'Covid cases'
-            },
-            height: chartHeight,
-                    width: '120%',
-          };
-           
-    
+          is3D: true,
+          tooltip: {
+            isHtml: true
+          },
+          title: 'Total Cases in India',
+          hAxis: {
+            title: 'Date', titleTextStyle: { color: '#333' },
+            slantedText: true, slantedTextAngle: 40
+          },
+          explorer: { actions: ["dragToZoom", "rightClickToReset"] },
+          legend: { position: "top" },
+          pointSize: 10,
+          pointShape: { type: 'triangle', rotation: 180 },
+          vAxis: {
+            title: 'Covid cases'
+          },
+          height: chartHeight,
+          width: '120%',
+        };
+
+
         chart.draw(dataTable, options);
 
       },
@@ -199,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
           dataMode: 'markers',
           datalessRegionColor: 'ash',
           colorAxis: {
-            colors: ['#dbbcba', '#c97671', '#f22216'],
+            colors: ['#ff9494', '#ed5353', '#ff0000'],
           },
           // width: 450,
           // height: 450,
@@ -291,7 +438,6 @@ document.addEventListener('DOMContentLoaded', function () {
       graph: function (daily) {
         document.getElementById("chartarea_1").innerHTML = "<canvas id='canvas5'></canvas>";
         var ctx_1 = document.getElementById('canvas5').getContext("2d");
-        // console.log(daily);
         var new_arr = [], new_arr1 = [], new_arr2 = [];
         for (var i = 0; i < daily.length; i++) {
           new_arr.push(daily[i].reportDate)
@@ -384,12 +530,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
       },
       add: function (table_data) {
-        var c = table_data.countryitems[0];
-        const dateRangeData = Object.keys(c).map(key => c[key]);
-        let table = document.querySelector("table");
-        let data = Object.keys(dateRangeData[0]);
+        var c = table_data.table;
+        var table = document.getElementById("dataTable");
+        let data = Object.keys(c[0]);
         this.generateTableHead(table, data);
-        this.generateTable(table, dateRangeData);
+        this.generateTable(table, c);
+      },
+      add1: function (table_data) {
+        var c = table_data.table;
+        var table = document.getElementById("table1");
+        let data = Object.keys(c[0]);
+        this.generateTableHead(table, data);
+        this.generateTable(table, c);
+      },
+      add2: function (table_data) {
+
+        var c = table_data.data[0].table[0];
+        console.log(table_data.data[0].table[0])
+        var table = document.getElementById("table2");
+        let data = Object.keys(c[0]);
+        this.generateTableHead(table, data);
+        this.generateTable(table, c);
       },
       generateTable: function (table, data) {
         for (let element of data) {
@@ -421,6 +582,9 @@ document.addEventListener('DOMContentLoaded', function () {
       this.revenue3();
       this.revenue4();
       this.revenue5();
+      this.revenue6();
+      this.revenue7();
+      this.revenue8();
     },
     beforeCreate() {
     }

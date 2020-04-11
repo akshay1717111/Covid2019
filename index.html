@@ -29,7 +29,7 @@
       <!-- Sidebar -  Logo - Title -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-5">
-        <i class="fas fa-tachometer-alt"></i>
+          <i class="fas fa-tachometer-alt"></i>
         </div>
         <div class="sidebar-brand-text mx-3">COVID</div>
       </a>
@@ -40,13 +40,13 @@
       </div>
       <li class="nav-item">
         <a class="nav-link" href="#">
-        <i class="fa fa-history"></i>
-         <span>Total Analysis</span></a>
+          <i class="fa fa-history"></i>
+          <span>Total Analysis</span></a>
       </li>
 
-     <!-- Divider -->
+      <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-      
+
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"><i class="fa fa-angle-left text-white"></i></button>
@@ -80,7 +80,7 @@
           <ul id="top-navbar" class="navbar-nav ml-auto">
 
             <!-- Nav Item - Alerts -->
-         
+
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -103,7 +103,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Confirmed Cases Today:
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Confirmed Cases
+                        Today:
                       </div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
@@ -125,7 +126,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Intensive Care Today(ICU):</div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Intensive Care Today(ICU):
+                      </div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800" id="count6"></div>
                     </div>
                     <div class="col-auto">
@@ -156,7 +158,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Countries Infected:
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Countries & Island
+                        Infected:
                       </div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
@@ -251,93 +254,126 @@
           </div><br>
           <div class="row">
             <div class="col-xl-8 col-md-6 col-12">
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">India State wise</h6>
-            </div>
-            <div class="card-body">
-              <div class="chartjs-wrapper">
-                <div id="visualization1"></div>
-              </div>
-            </div>
-          </div>
-          </div>
-          <div class="col-xl-4 col-md-6 col-12">
-            <div class="card shadow mb-4">
-              <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Indian Covid Count</h6>
-              </div>
-              <div class="card-body">
-                <div class="chartjs-wrapper">
-                  <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Infected Total:</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800" id="count9"></div>
-                        </div>
-                        <div class="col-auto">
-                          <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div><br>
-                  <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Recovered:</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800" id="count10"></div>
-                        </div>
-                        <div class="col-auto">
-                          <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div><br>
-                  <div class="card border-left-danger shadow h-100 py-2">
-                    <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Deaths:</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800" id="count8"></div>
-                        </div>
-                        <div class="col-auto">
-                          <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div><br>
-                  <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Last updated on:</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800" id="count11"></div>
-                        </div>
-                        <div class="col-auto">
-                          <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
-                        </div>
-                      </div>
-                    </div>
-                  </div><br>
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">World Wide Deaths and Cases</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chartjs-wrapper">
+                    <div id="visualization3"></div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="col-xl-4 col-md-6 col-12">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">European Continent Data</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chartjs-wrapper">
+                    <div class="table-responsive data_spec" style="overflow:auto; max-height: calc(75vh - 150px);">
+    
+                      <table class="table table-bordered" id="table2" cellspacing="0" width="100%">
+    
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><br>
+          <div class="row">
+            <div class="col-xl-8 col-md-6 col-12">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">India State wise</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chartjs-wrapper">
+                    <div id="visualization1"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-12">
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Indian Covid Count</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chartjs-wrapper">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                      <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Infected Total:</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="count9"></div>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="card border-left-success shadow h-100 py-2">
+                      <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Recovered:
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="count10"></div>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="card border-left-danger shadow h-100 py-2">
+                      <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Total Deaths:</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="count8"></div>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                    <div class="card border-left-primary shadow h-100 py-2">
+                      <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Last updated on:
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="count11"></div>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <br>
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Total Cases In India</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Total Cases In India</h6>
             </div>
             <div class="card-body">
 
-                <div class="chartjs-wrapper">
-                    <div id="linechart"></div>
-                </div>
+              <div class="chartjs-wrapper">
+                <div id="linechart"></div>
+              </div>
             </div>
-        </div><br>
+          </div><br>
           <div class="card shadow mb-4">
             <div class="card-header py-3">
               <h6 class="m-0 font-weight-bold text-primary">Day wise Cases As of Yesterday(World)</h6>
@@ -362,42 +398,59 @@
           <br>
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Country wise</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Country wise</h6>
             </div>
             <div class="card-body">
-                <h2 class="mb-1" id="value3"></h2>
-                <div class="chartjs-wrapper">
-                    <div class="table-responsive data_spec"
-                        style="overflow:auto; max-height: calc(75vh - 150px);">
-
-                        <table class="table table-bordered" id="dataTable" cellspacing="0" width="100%">
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div><br>
-          <!-- <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <select class="form-control wid_fo" id="mySelect" @change="myFunction()">
-                <option v-for="idea in country_name" :value="idea" selected>[[ idea ]]
-                <option>
-              </select>
-            </div>
-            <div class="card-body">
+              <h2 class="mb-1" id="value3"></h2>
               <div class="chartjs-wrapper">
-                <div id="linechart"></div>
+                <div class="table-responsive data_spec" style="overflow:auto; max-height: calc(75vh - 150px);">
+
+                  <table class="table table-bordered" id="dataTable" cellspacing="0" width="100%">
+
+                  </table>
+                </div>
               </div>
             </div>
-          </div><br> -->
+          </div><br>
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Fatality RateBy Comorbidities</h6>
+            </div>
+            <div class="card-body">
+              <h2 class="mb-1" id="value3"></h2>
+              <div class="chartjs-wrapper">
+                <div class="table-responsive data_spec" style="overflow:auto; max-height: calc(75vh - 150px);">
 
-        </div>
-        <!-- /.container-fluid -->
+                  <table class="table table-bordered" id="table1" cellspacing="0" width="100%">
+
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><br>
+        <div class="row m-2">
+          <div class="col-xl-8 col-md-6 col-12">
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">US State wise</h6>
+              </div>
+              <div class="card-body">
+                <div class="chartjs-wrapper">
+                  <div id="visualization2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><br>
 
       </div>
+      <!-- /.container-fluid -->
 
     </div>
-    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Content Wrapper -->
 
   </div>
   <!-- End of Page Wrapper -->
