@@ -173,8 +173,11 @@ document.addEventListener('DOMContentLoaded', function () {
         data.addRows(fin);
         var options = {
           datalessRegionColor: 'ash',
+          // colorAxis: {
+          //   colors: ['#e3d754', '#ff8c00', '#ff7b00', '#d47f7f', '#ff0000'],
+          // },
           colorAxis: {
-            colors: ['#e3d754', '#ff8c00', '#ff7b00', '#d47f7f', '#ff0000'],
+            colors: ['#e3c23d','#ff7300',"blue", "violet", "brown", "pink", "black", "red"],
           },
         };
 
@@ -232,12 +235,12 @@ document.addEventListener('DOMContentLoaded', function () {
           resolution: 'provinces',
           dataMode: 'markers',
           datalessRegionColor: 'ash',
-          // colorAxis: {
-          //   colors: ['#d68427','#ff5e00','#c40000'],
-          // },
           colorAxis: {
-            colors: ['#e3d754', '#ff8c00', '#ff0000'],
+            colors: ["orange", "blue", "green","red", "brown", "pink", "black", "violet"],
           },
+          // colorAxis: {
+          //   colors: ['#e3d754', '#ff8c00', '#ff0000'],
+          // },
           strokeWeight: 2,
           scale: 1,
         };
