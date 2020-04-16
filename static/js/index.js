@@ -27,8 +27,11 @@ document.addEventListener('DOMContentLoaded', function () {
           dataType: 'json',
           success: function (data) {
             this.cards(data)
-              $("#loading").hide();
-          }.bind(this)
+            $("#loading").hide();
+          }.bind(this),
+          fail:function(){
+            $("#loading").hide();
+          }
         });
       },
       revenue1: function () {
@@ -177,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
           //   colors: ['#e3d754', '#ff8c00', '#ff7b00', '#d47f7f', '#ff0000'],
           // },
           colorAxis: {
-            colors: ['#e3c23d','#ff7300',"blue", "violet", "brown", "pink", "black", "red"],
+            colors: ['#e3c23d', '#ff7300', "blue", "violet", "brown", "pink", "black", "red"],
           },
         };
 
@@ -204,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function () {
           d[i] = {
             "state": values[i].USAState,
             "customers": values[i].TotalDeaths,
-            "tooltip": "State:" + values[i].USAState + "," + "Deaths:" + values[i].TotalDeaths
+            "tooltip": "Deaths:" + values[i].TotalDeaths + "," + "Activecases:" + values[i].ActiveCases
           }
 
         }
@@ -236,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
           dataMode: 'markers',
           datalessRegionColor: 'ash',
           colorAxis: {
-            colors: ["orange", "blue", "green","red", "brown", "pink", "black", "violet"],
+            colors: ["orange", "blue", "green", "red", "brown", "pink", "black", "violet"],
           },
           // colorAxis: {
           //   colors: ['#e3d754', '#ff8c00', '#ff0000'],
@@ -519,7 +522,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // var dateObj = new Date();
         // var month = ('0' + (dateObj.getMonth() + 1)).slice(-2);
         // var date = ('0' + (dateObj.getDate() - 1)).slice(-2);
-        // var year = dateObj.getFullYear();
+        // var year = dateObj.getFullYear();  
         // var shortDate = month + '-' + date + '-' + year;
         // // var obj = JSON.parse(data);
         $("#count0").html(this.formatNumber(data.results[0].total_cases))
@@ -530,8 +533,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $("#count5").html(this.formatNumber(data.results[0].total_new_deaths_today))
         $("#count6").html(this.formatNumber(data.results[0].total_serious_cases))
         $("#count7").html(this.formatNumber(data.results[0].total_affected_countries))
-
-      },
+ },
       add: function (table_data) {
         var c = table_data.table;
         var table = document.getElementById("dataTable");
@@ -547,9 +549,7 @@ document.addEventListener('DOMContentLoaded', function () {
         this.generateTable(table, c);
       },
       add2: function (table_data) {
-
         var c = table_data.data[0].table[0];
-        console.log(table_data.data[0].table[0])
         var table = document.getElementById("table2");
         let data = Object.keys(c[0]);
         this.generateTableHead(table, data);

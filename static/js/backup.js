@@ -114,6 +114,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }.bind(this)
           });
         },
+        animateValue:function(id, start, end, duration) {
+        var range = end - start;
+        var current = start;
+        var increment = end > start? 1 : -1;
+        var stepTime = Math.abs(Math.floor(duration / range));
+        var obj = document.getElementById(id);
+        var timer = setInterval(function() {
+            current += increment;
+            obj.innerHTML = current;
+            if (current == end) {
+                clearInterval(timer);
+            }
+        }, stepTime);
+    },
         bass: function (a, b) {
           var tltp = "<strong>" + "Date:" + a + "</strong>" + "<br>" + "<strong>" + "Covid cases:" + b + "</strong>" + "<br>";
           return tltp;
