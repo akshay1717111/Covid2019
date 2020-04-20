@@ -288,8 +288,8 @@ document.addEventListener('DOMContentLoaded', function () {
           },
           explorer: { actions: ["dragToZoom", "rightClickToReset"] },
           legend: { position: "top" },
-          pointSize: 10,
-          pointShape: { type: 'triangle', rotation: 180 },
+         // pointSize: 10,
+        //pointShape: { type: 'triangle', rotation: 180 },
           vAxis: {
             title: 'Covid cases'
           },
